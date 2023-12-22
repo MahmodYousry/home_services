@@ -1,0 +1,87 @@
+<div>
+
+    <div class="section-title-01 honmob">
+        <div class="bg_parallax image_02_parallax"></div>
+        <div class="opacy_bg_02">
+            <div class="container">
+                <h1>Edit Service Category</h1>
+                <div class="crumbs">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li>/</li>
+                        <li>Edit Service Category</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content-central">
+        <div class="content_info">
+            <div class="paddings-mini">
+                <div class="container">
+                    <div class="row portfolioContainer">
+                        <div class="col-md-8 col-md-offset-2 profile1">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-md-6">Edit Service Category</div>
+                                        <div class="col-md-6">
+                                            <a class="btn btn-info pull-right" href="{{ route('admin.service_categories') }}">All Categories</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    @if(Session::has('message'))
+                                        <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
+                                    @endif
+                                    <form class="form-horizontal" action="" wire:submit.prevent="updateServiceCategory">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="name" class="control-label col-sm-3">Category Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="name" wire:model="name" wire:keyup="generateSlug" class="form-control">
+                                                @error('name') <p class="text-danger">{{$message}}</p> @enderror
+                                            </div>
+                                        </div>
+                                        {{-- Category Slug --}}
+                                        <div class="form-group">
+                                            <label for="slug" class="control-label col-sm-3">Category Slug</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="slug" wire:model="slug" class="form-control">
+                                                @error('slug') <p class="text-danger">{{$message}}</p> @enderror
+                                            </div>
+                                        </div>
+                                        {{-- Category Image --}}
+                                        <div class="form-group">
+                                            <label for="image" class="control-label col-sm-3">Category Image</label>
+                                            <div class="col-sm-9">
+                                                <input type="file" name="image" wire:model="newimage" class="form-control-file">
+                                                @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
+                                                @if ($newimage)
+                                                    <img src="{{ $newimage->temporaryUrl() }}" width="60" alt="">
+                                                @else
+                                                    <img src="{{ asset('images/categories') }}/{{ $image }}" width="60" alt="">
+                                                @endif
+                                            </div>
+                                        </div>
+                                        {{-- Featured --}}
+                                        <div class="form-group">
+                                            <label for="featured" class="control-label col-sm-3">Featured: </label>
+                                            <div class="col-sm-9">
+                                                <select name="featured" id="featured" wire:model="featured" class="form-control">
+                                                    <option value="1">Yes</option>
+                                                    <option value="0">No</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-success pull-right">Update Category</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
