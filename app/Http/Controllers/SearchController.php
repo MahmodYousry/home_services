@@ -15,6 +15,7 @@ class SearchController extends Controller
 
     public function searchService(Request $req) {
         $service_slug = Str::slug($req->q, '-');
+
         if ($service_slug) {
             return redirect('/service/'.$service_slug);
         } else {

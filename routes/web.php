@@ -12,6 +12,7 @@ use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminServicesByCategoryComponent;
 use App\Http\Livewire\Admin\AdminServicesComponent;
 use App\Http\Livewire\Admin\AdminSliderComponent;
+use App\Http\Livewire\ChangeLocationComponent;
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ServiceCategoriesComponent;
@@ -34,6 +35,9 @@ Route::get('/service/{service_slug}', ServiceDetailsComponent::class)->name('hom
 // Search Auto Complete
 Route::get('/autocomplete', [SearchController::class, 'autocomplete'])->name('autocomplete');
 Route::post('/search', [SearchController::class, 'searchService'])->name('searchService');
+
+// change location
+Route::get('/change-location', ChangeLocationComponent::class)->name('home.change_location');
 
 // For Customer
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

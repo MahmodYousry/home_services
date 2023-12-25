@@ -38,13 +38,7 @@
                                         class="fa fa-map-marker"></i> Faridabad, Haryana</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-6">
-                        <ul class="visible-md visible-lg text-right">
-                            <li><i class="fa fa-comment"></i> Live Chat</li>
-                            <li><a href="index.php/changelocation.html"><i class="fa fa-map-marker"></i> Faridabad,
-                                    Haryana</a></li>
-                        </ul>
-                    </div>
+                    @livewire('location-component')
                 </div>
             </div>
         </div>
@@ -214,8 +208,7 @@
                                 <i class="fa fa-map-marker"></i> <a href="#"> Faridabad, Haryana, India</a>
                             </li>
                             <li>
-                                <i class="fa fa-envelope"></i> <a
-                                    href="mailto:contact@surfsidemedia.in">contact@surfsidemedia.in</a>
+                                <i class="fa fa-envelope"></i> <a href="mailto:contact@surfsidemedia.in">contact@surfsidemedia.in</a>
                             </li>
                             <li>
                                 <i class="fa fa-headphones"></i> <a href="tel:+911234567890">+91-1234567890</a>
