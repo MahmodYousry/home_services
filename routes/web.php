@@ -1,29 +1,30 @@
 <?php
 
-use App\Http\Controllers\SearchController;
-use App\Http\Livewire\Admin\AdminAddServiceCategoryComponent;
-use App\Http\Livewire\Admin\AdminAddServiceComponent;
-use App\Http\Livewire\Admin\AdminAddSlideComponent;
-use App\Http\Livewire\Admin\AdminContactComponent;
-use App\Http\Livewire\Admin\AdminDashboardComponent;
-use App\Http\Livewire\Admin\AdminEditServiceCategoryComponent;
-use App\Http\Livewire\Admin\AdminEditServiceComponent;
-use App\Http\Livewire\Admin\AdminEditSlideComponent;
-use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
-use App\Http\Livewire\Admin\AdminServicesByCategoryComponent;
-use App\Http\Livewire\Admin\AdminServicesComponent;
-use App\Http\Livewire\Admin\AdminSliderComponent;
-use App\Http\Livewire\ChangeLocationComponent;
-use App\Http\Livewire\ContactComponent;
-use App\Http\Livewire\Customer\CustomerDashboardComponent;
 use App\Http\Livewire\HomeComponent;
-use App\Http\Livewire\ServiceCategoriesComponent;
-use App\Http\Livewire\ServiceDetailsComponent;
-use App\Http\Livewire\ServicesByCategoryComponent;
-use App\Http\Livewire\Sprovider\EditSproviderProfileComponent;
-use App\Http\Livewire\Sprovider\SproviderDashboardComponent;
-use App\Http\Livewire\Sprovider\SproviderProfileComponent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\ContactComponent;
+use App\Http\Controllers\SearchController;
+use App\Http\Livewire\ChangeLocationComponent;
+use App\Http\Livewire\ServiceDetailsComponent;
+use App\Http\Livewire\Admin\AdminSliderComponent;
+use App\Http\Livewire\ServiceCategoriesComponent;
+use App\Http\Livewire\Admin\AdminContactComponent;
+use App\Http\Livewire\ServicesByCategoryComponent;
+use App\Http\Livewire\Admin\AdminAddSlideComponent;
+use App\Http\Livewire\Admin\AdminServicesComponent;
+use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Admin\AdminEditSlideComponent;
+use App\Http\Livewire\Admin\AdminAddServiceComponent;
+use App\Http\Livewire\Admin\AdminEditServiceComponent;
+use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
+use App\Http\Livewire\Customer\CustomerDashboardComponent;
+use App\Http\Livewire\Sprovider\SproviderProfileComponent;
+use App\Http\Livewire\Admin\AdminServiceProvidersComponent;
+use App\Http\Livewire\Sprovider\SproviderDashboardComponent;
+use App\Http\Livewire\Admin\AdminAddServiceCategoryComponent;
+use App\Http\Livewire\Admin\AdminServicesByCategoryComponent;
+use App\Http\Livewire\Admin\AdminEditServiceCategoryComponent;
+use App\Http\Livewire\Sprovider\EditSproviderProfileComponent;
 
 // Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 //     Route::get('/dashboard', function () {
@@ -74,4 +75,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () 
     Route::get('/admin/slider/add', AdminAddSlideComponent::class)->name('admin.add_slide');
     Route::get('/admin/slider/edit/{slide_id}', AdminEditSlideComponent::class)->name('admin.edit_slide');
     Route::get('/admin/contacts', AdminContactComponent::class)->name('admin.contacts');
+
+    // service providers
+    Route::get('/admin/service-provider', AdminServiceProvidersComponent::class)->name('admin.service_providers');
 });
